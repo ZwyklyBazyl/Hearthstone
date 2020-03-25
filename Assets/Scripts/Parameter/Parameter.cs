@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parameter<T>
+public class Parameter<T> where T : struct
 {
     public delegate void OnValueChangeDelegate(T value);
     public OnValueChangeDelegate OnValueChangeDo;
