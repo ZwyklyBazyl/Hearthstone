@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {
-    public Parameter<int> health;
-    public Parameter<int> mana;
-    public Parameter<int> speed;
+    public Parameter<int> health = new Parameter<int>();
+    public Parameter<int> mana = new Parameter<int>();
+    public Parameter<int> speed = new Parameter<int>();
 }

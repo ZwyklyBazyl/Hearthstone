@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CardEffects : MonoBehaviour
 {
-    public Effect[] effects;
+    public IntEffect effect;
+    [SerializeField] private Card card;
+
+    private void Awake()
+    {
+        card.cardOperations.OnUseDo += Use;
+    }
 
     public void Use()
     {
-        foreach (var e in effects)
-        {
-            e.Use();
-        }
+        effect.Use();
     }
 }

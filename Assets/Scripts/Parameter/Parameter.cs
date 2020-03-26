@@ -16,6 +16,7 @@ public class Parameter<T> where T : struct
 
     public void SetValue(T value)
     {
+        Debug.Log(value);
         this.value = value;
         OnValueChangeDo?.Invoke(value);
     }

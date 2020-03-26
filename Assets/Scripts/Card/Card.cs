@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public PlayerManager playerManager;
 
     public CardOperations cardOperations;
+    public CardEffects cardEffects;
 
     private CardParameters cardParameters;
 

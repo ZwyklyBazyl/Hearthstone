@@ -26,6 +26,7 @@ public class CardOperations : MonoBehaviour
     public void Use()
     {
         OnUseDo?.Invoke();
+        Generate();
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class IntEffects
 {
-    public Player actualPlayer;
+   [SerializeField] public IntEffect[] intEffects;
 }

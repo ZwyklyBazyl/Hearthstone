@@ -3,29 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Effect
+[System.Serializable]
+public class Effect<T> where T : struct
 {
-    public delegate void OnUseDelegate();
+    public delegate void OnUseDelegate(Parameter<T> param);
     public OnUseDelegate OnUseDo;
+
+    public double value;
+    public EffectParameter effectParameter;
+    public EffectOperation operation;
+    protected Player player;
+
+    public void SetPlayer(Player p)
+    {
+        player = p;
+    }
 
     public void Use()
     {
-        OnUseDo?.Invoke();
+        GetEffect();
+        GetParameter();
     }
 
-    public void SetValue<T>(double value, Parameter<T> param) where T : struct
+    public void SetValue(Parameter<T> param)
     {
         param.SetValue((T)Convert.ChangeType(value, typeof(T)));
     }
 
-    public void ChangeValue<T>(double value, Parameter<T> param) where T : struct
+    public void ChangeValue(Parameter<T> param)
     {
         dynamic v = param.GetValue();
         v = (double)Convert.ChangeType(v, typeof(double));
 
         param.SetValue(v + value);
+    }
 
+    public virtual void GetEffect()
+    {
+
+        switch (operation)
+        {
+            case EffectOperation.CHANGE:
+                OnUseDo = ChangeValue;
+                break;
+            case EffectOperation.SET:
+                OnUseDo = SetValue;
+                break;
+        }
     }
 
 
+    public virtual void GetParameter()
+    {
+    }
+}
+
+public enum EffectParameter
+{
+    HP,
+    MP,
+    SPEED
+}
+
+public enum EffectOperation
+{
+    SET,
+    CHANGE
 }
