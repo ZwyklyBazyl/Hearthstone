@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardOperations
+public class CardOperations : MonoBehaviour
 {
-
     public delegate void OnSaveDelegate();
     public OnSaveDelegate OnSaveDo;
 

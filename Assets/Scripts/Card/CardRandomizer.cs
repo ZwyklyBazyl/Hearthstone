@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardRandomizer
+public class CardRandomizer : MonoBehaviour
 {
+    [SerializeField] private Card card;
     [SerializeField] private ScriptableCardResources resources;
 
-    public CardParameters GenerateCardParameters()
+    private void Awake()
+    {
+        card.cardOperations.OnGenerateDo += () => GenerateCardParameters();
+    }
+
+    public void GenerateCardParameters()
     {
         CardParameters parameters = new CardParameters();
 
@@ -19,6 +25,6 @@ public class CardRandomizer
         random = Random.Range(0, resources.images.Length);
         parameters.cardSprite = resources.images[random];
 
-        return parameters;
+        card.SetParameters(parameters);
     }
 }

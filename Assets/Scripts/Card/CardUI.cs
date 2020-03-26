@@ -7,14 +7,13 @@ public class CardUI : MonoBehaviour
 {
     [SerializeField] private Card card;
 
-    private Text cardName;
-    private Text cardDescription;
-    private Image cardImage;
+    [SerializeField] private Text cardName;
+    [SerializeField] private Text cardDescription;
+    [SerializeField] private Image cardImage;
 
-    private void Awake() {
-        
-        card.OnGenerateDo += UpdateUI;
-
+    private void Awake()
+    {
+        card.OnParametersChangeDo += UpdateUI;
     }
 
     private void UpdateUI(CardParameters parameters)
