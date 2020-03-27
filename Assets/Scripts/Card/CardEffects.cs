@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardEffects : MonoBehaviour
 {
-    public IntEffect effect;
+    public IntEffect[] effects;
     [SerializeField] private Card card;
 
     private void Awake()
@@ -14,6 +14,9 @@ public class CardEffects : MonoBehaviour
 
     public void Use()
     {
-        effect.Use();
+        foreach(var e in effects)
+        {
+            e.Use();
+        }
     }
 }

@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
     public CardOperations cardOperations;
     public CardEffects cardEffects;
 
-    private CardParameters cardParameters;
+    [HideInInspector] public CardParameters cardParameters;
 
     public void SetParameters(CardParameters parameters)
     {

@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName="Effects",menuName="Card/Effects")]
 public class ScriptableEffects : ScriptableObject
 {
-    public IntEffect[] effects;
+    public ScriptableCardEffect[] effects;
 }
 

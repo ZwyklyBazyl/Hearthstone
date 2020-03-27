@@ -33,7 +33,13 @@ public class CardRandomizer : MonoBehaviour
     public void GenerateEffect()
     {
         int random = Random.Range(0, effectResources.effects.Length);
-        effectResources.effects[random].SetPlayer(card.playerManager.actualPlayer);
-        card.cardEffects.effect = effectResources.effects[random];
+        var effect = effectResources.effects[random];
+
+        foreach(var e in effect.cardEffects)
+        {
+            e.SetPlayer(card.playerManager.actualPlayer);
+        }
+
+        card.cardEffects.effects = effect.cardEffects;
     }
 }

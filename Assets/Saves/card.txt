@@ -1,0 +1,1 @@
+{"cardName":"InfiniteWyrm","cardDescription":"Legends say he defeated a dragon","cardSprite":{"instanceID":10858}}{"effects":[{"value":50.0,"effectParameter":0,"operation":0},{"value":40.0,"effectParameter":1,"operation":0}],"card":{"instanceID":11350}}

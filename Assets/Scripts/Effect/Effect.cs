@@ -35,7 +35,7 @@ public class Effect<T> where T : struct
         dynamic v = param.GetValue();
         v = (double)Convert.ChangeType(v, typeof(double));
 
-        param.SetValue(v + value);
+        param.SetValue((T)Convert.ChangeType(v + value, typeof(T)));
     }
 
     public virtual void GetEffect()

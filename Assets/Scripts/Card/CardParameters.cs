@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class CardParameters
 {
-    internal string cardName;
-    internal string cardDescription;
-    internal Sprite cardSprite;
+    public string cardName;
+    public string cardDescription;
+    public Sprite cardSprite;
 }
